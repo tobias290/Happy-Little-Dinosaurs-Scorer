@@ -1,6 +1,106 @@
-@import "variables";
+@import "partials/bootstrap";
 
-#test {
-  background: green;
-  color: rebeccapurple;
+* {
+    font-family: $font;
+}
+
+.characters {
+    @include flex($direction: column, $gap: 15px);
+
+    margin: 1rem;
+}
+
+.character {
+    @include flex($align: center, $justify: flex-start, $gap: 10px);
+
+    border: 2px solid;
+    border-radius: 16px;
+    box-sizing: border-box;
+    height: 90px;
+    padding: .5rem;
+
+    @each $color, $hex in $character-colors {
+        &--#{$color} {
+            border-color: $hex;
+            color: $hex;
+        }
+    }
+
+    &__img {
+        height: 50px;
+        margin-left: .5rem;
+        margin-right: 1rem;
+    }
+}
+
+
+.character-page {
+    @include flex($align: center, $direction: column);
+
+    height: 100%;
+
+    @each $color, $hex in $character-colors {
+        &--#{$color} &__header {
+            background: $hex;
+        }
+    }
+
+    &__header {
+        @include flex($center: true);
+
+        color: $white;
+        font-size: 1.5rem;
+        height: 75px;
+        width: 100%;
+    }
+
+    &__body {
+        @include flex($align: center, $justify: space-between, $direction: column, $gap: 20px);
+
+        flex-grow: 1;
+        padding: 1rem 0;
+        width: 100%;
+    }
+
+    &__img {
+        max-width: 100px;
+        width: 100%;
+    }
+
+    &__btn-group {
+        @include flex($center: true, $gap: 20px);
+
+        box-sizing: border-box;
+        padding: 1rem;
+        width: 100%;
+
+        .button {
+            width: 40%;
+        }
+    }
+
+    &__counter {
+        color: $white;
+        font-size: 150px;
+    }
+}
+
+.button {
+    @include flex($center: true);
+
+    border: none;
+    border-radius: 50px;
+    color: $white;
+    font-size: 75px;
+    font-weight: bold;
+    height: 75px;
+    max-width: 200px;
+    text-align: center;
+    width: 100%;
+
+    @each $color, $hex in $character-colors {
+        &--#{$color} {
+            background: $hex;
+        }
+    }
 }

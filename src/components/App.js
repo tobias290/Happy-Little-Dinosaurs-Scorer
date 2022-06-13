@@ -1,4 +1,7 @@
 import "../css/app.css";
+import CharacterList from "./CharacterList";
+import {useState} from "react";
+import CharacterPage from "./CharacterPage";
 
 const CHARACTERS = [
     {
@@ -35,10 +38,21 @@ const CHARACTERS = [
 
 
 function App() {
+    const [activeCharacter, setActiveCharacter] = useState(null);
+
+    function onCharacterSelect(character) {
+        setActiveCharacter(character);
+    }
+
     return (
-        <div id="test">
-            Testing
-        </div>
+        <>
+            {activeCharacter === null && <CharacterList
+                characters={CHARACTERS}
+                onCharacterSelect={onCharacterSelect}
+            />}
+
+            {activeCharacter !== null && <CharacterPage {...activeCharacter}/>}
+        </>
     );
 }
 
