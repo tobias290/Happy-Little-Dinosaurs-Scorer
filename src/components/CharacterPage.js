@@ -14,13 +14,16 @@ function CharacterPage({name, color, image}) {
     return (
         <div className={`character-page character-page--${color}`}>
             <div className="character-page__header">
+                <img src={`images/${image}`} alt={name} />
                 <h1>{name}</h1>
             </div>
 
             <div className="character-page__body">
-                <img className="character-page__img" src={`images/${image}`} alt={name} />
+                <button className={`button button--${color} button--small`} onClick={() => setCount(0)}>Reset</button>
 
-                <div className="character-page__counter">{count}</div>
+                <div className="character-page__counter">
+                    <span>{count}</span>
+                </div>
 
                 <div className="character-page__btn-group">
                     <button className={`button button--${color}`} onClick={() => updateCount(false)}>-</button>
