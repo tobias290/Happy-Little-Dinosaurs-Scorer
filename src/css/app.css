@@ -74,8 +74,9 @@
     gap: initial;
     justify-content: center;
     color: #FFF;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     height: 75px;
+    text-align: center;
     width: 100%; }
   .character-page__body {
     align-items: center;
