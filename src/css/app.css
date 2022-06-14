@@ -104,7 +104,8 @@
       width: 40%; }
   .character-page__counter {
     color: #FFF;
-    font-size: 150px; }
+    font-size: 250px;
+    line-height: 100px; }
 
 .button {
   align-items: center;
